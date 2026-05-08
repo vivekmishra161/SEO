@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Shop UrbanVibe's full streetwear collection. Browse hoodies, tees, jackets, and limited drops. Bold streetwear for Gen Z." />
+  <meta name="keywords" content="buy streetwear online, Gen Z fashion shop, hoodies, urban tees, oversized jackets India" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Shop – UrbanVibe Streetwear" />
+  <meta property="og:description" content="Browse the full UrbanVibe collection. Hoodies, tees, and limited drops." />
+  <title>Shop – UrbanVibe | Streetwear Collection</title>
+  <link rel="canonical" href="https://urbanvibe.com/shop" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <a href="../index.html" class="nav-logo">Urban<span>Vibe</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="cart.html" class="nav-icon" aria-label="Cart">
+      <i class="fa-solid fa-bag-shopping"></i>
+      <span class="cart-count" style="display:none">0</span>
+    </a>
+    <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mobile-menu">
+  <a href="../index.html">Home</a>
+  <a href="shop.html">Shop</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="cart.html">Cart</a>
+</div>
+
+<main>
+<section class="page-hero" aria-labelledby="shop-page-title">
+  <div class="section-label">Catalogue</div>
+  <h1 class="page-hero-title" id="shop-page-title">Shop All</h1>
+  <p class="page-hero-sub">200+ styles. Zero compromise. Find your fit and wear it loud.</p>
+</section>
+
+<!-- FILTER TABS -->
+<div style="max-width:1400px;margin:0 auto;padding:0 2rem 2rem;">
+  <div style="display:flex;gap:0.5rem;flex-wrap:wrap;" role="group" aria-label="Category filters">
+    <button class="btn btn-ghost filter-tab active-tab" data-cat="all" onclick="filterProducts('all')">All</button>
+    <button class="btn btn-ghost filter-tab" data-cat="hoodies" onclick="filterProducts('hoodies')">Hoodies</button>
+    <button class="btn btn-ghost filter-tab" data-cat="tees" onclick="filterProducts('tees')">Tees</button>
+    <button class="btn btn-ghost filter-tab" data-cat="jackets" onclick="filterProducts('jackets')">Jackets</button>
+    <button class="btn btn-ghost filter-tab" data-cat="limited" onclick="filterProducts('limited')">Limited Drops</button>
+  </div>
+</div>
+
+<div class="shop-layout" style="display:block;max-width:1400px;margin:0 auto;padding:0 2rem 6rem;">
+  <div class="shop-top">
+    <span style="color:var(--grey);font-size:0.8rem;" id="product-count">Showing 8 products</span>
+    <select class="sort-select" aria-label="Sort products" onchange="sortProducts(this.value)">
+      <option value="featured">Featured</option>
+      <option value="price-asc">Price: Low to High</option>
+      <option value="price-desc">Price: High to Low</option>
+      <option value="newest">Newest</option>
+    </select>
+  </div>
+
+  <div class="products-grid" id="shop-grid">
+
+    <article class="product-card reveal" data-id="uv-001" data-price="1299" data-emoji="🖤" data-cat="tees" data-order="1">
+      <div class="product-placeholder">🖤</div>
+      <div class="product-badge">New</div>
+      <div class="product-info">
+        <div class="product-name">Void Black Tee</div>
+        <div class="product-price"><span class="sale">₹1,299</span></div>
+      </div>
+      <div class="product-overlay"><button class="product-add-btn">Add to Cart</button></div>
+    </article>
+
+    <article class="product-card reveal" data-id="uv-002" data-price="2499" data-emoji="⚡" data-cat="hoodies" data-order="2">
+      <div class="product-placeholder">⚡</div>
+      <div class="product-badge">Hot</div>
+      <div class="product-info">
+        <div class="product-name">Static Hoodie</div>
+        <div class="product-price"><span class="original">₹3,499</span><span class="sale">₹2,499</span></div>
+      </div>
+      <div class="product-overlay"><button class="product-add-btn">Add to Cart</button></div>
+    </article>
+
+    <article class="product-card reveal" data-id="uv-003" data-price="899" data-emoji="🔥" data-cat="tees" data-order="3">
+      <div class="product-placeholder">🔥</div>
+      <div class="product-info">
+        <div class="product-name">Flame Crop Tee</div>
+        <div class="product-price"><span class="sale">₹899</span></div>
+      </div>
+      <div class="product-overlay"><button class="product-add-btn">Add to Cart</button></div>
+    </article>
+
+    <article class="product-card reveal" data-id="uv-004" data-price="3299" data-emoji="🌫️" data-cat="limited" data-order="4">
+      <div class="product-placeholder">🌫️</div>
+      <div class="product-badge">Limited</div>
+      <div class="product-info">
+        <div class="product-name">Smoke Jacket</div>
+        <div class="product-price"><span class="sale">₹3,299</span></div>
+      </div>
+      <div class="product-overlay"><button class="product-add-btn">Add to Cart</button></div>
+    </article>
+
+    <article class="product-card reveal" data-id="uv-005" data-price="1799" data-emoji="🌑" data-cat="hoodies" data-order="5">
+      <div class="product-placeholder">🌑</div>
+      <div class="product-info">
+        <div class="product-name">Lunar Pullover</div>
+        <div class="product-price"><span class="sale">₹1,799</span></div>
+      </div>
+      <div class="product-overlay"><button class="product-add-btn">Add to Cart</button></div>
+    </article>
+
+    <article class="product-card reveal" data-id="uv-006" data-price="599" data-emoji="💀" data-cat="tees" data-order="6">
+      <div class="product-placeholder">💀</div>
+      <div class="product-badge">Sale</div>
+      <div class="product-info">
+        <div class="product-name">Skull Graphic Tee</div>
+        <div class="product-price"><span class="original">₹999</span><span class="sale">₹599</span></div>
+      </div>
+      <div class="product-overlay"><button class="product-add-btn">Add to Cart</button></div>
+    </article>
+
+    <article class="product-card reveal" data-id="uv-007" data-price="4499" data-emoji="🧥" data-cat="jackets" data-order="7">
+      <div class="product-placeholder">🧥</div>
+      <div class="product-badge">New</div>
+      <div class="product-info">
+        <div class="product-name">Carbon Bomber</div>
+        <div class="product-price"><span class="sale">₹4,499</span></div>
+      </div>
+      <div class="product-overlay"><button class="product-add-btn">Add to Cart</button></div>
+    </article>
+
+    <article class="product-card reveal" data-id="uv-008" data-price="5999" data-emoji="⛓️" data-cat="limited" data-order="8">
+      <div class="product-placeholder">⛓️</div>
+      <div class="product-badge">Drop Zero</div>
+      <div class="product-info">
+        <div class="product-name">Chain Detail Coat</div>
+        <div class="product-price"><span class="sale">₹5,999</span></div>
+      </div>
+      <div class="product-overlay"><button class="product-add-btn">Add to Cart</button></div>
+    </article>
+
+  </div>
+</div>
+</main>
+
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 UrbanVibe. All rights reserved.</span>
+      <nav class="footer-legal">
+        <a href="#">Privacy</a><a href="#">Terms</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+  function filterProducts(cat) {
+    const cards = document.querySelectorAll('.product-card');
+    let count = 0;
+    cards.forEach(card => {
+      const match = cat === 'all' || card.dataset.cat === cat;
+      card.style.display = match ? '' : 'none';
+      if (match) count++;
+    });
+    document.getElementById('product-count').textContent = `Showing ${count} products`;
+    document.querySelectorAll('.filter-tab').forEach(btn => {
+      btn.classList.toggle('active-tab', btn.dataset.cat === cat);
+      btn.style.color = btn.dataset.cat === cat ? 'var(--black)' : '';
+      btn.style.background = btn.dataset.cat === cat ? 'var(--white)' : '';
+      btn.style.borderColor = btn.dataset.cat === cat ? 'var(--white)' : '';
+    });
+  }
+
+  function sortProducts(val) {
+    const grid = document.getElementById('shop-grid');
+    const cards = [...grid.querySelectorAll('.product-card')];
+    cards.sort((a, b) => {
+      if (val === 'price-asc') return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
+      if (val === 'price-desc') return parseFloat(b.dataset.price) - parseFloat(a.dataset.price);
+      return parseInt(a.dataset.order) - parseInt(b.dataset.order);
+    });
+    cards.forEach(c => grid.appendChild(c));
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /pages/cart.html
+
+Sitemap: https://urbanvibe.com/sitemap.xml

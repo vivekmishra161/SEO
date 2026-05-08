@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="UrbanVibe shopping cart and checkout. Review your items, apply discount codes, and complete your order." />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Cart & Checkout – UrbanVibe</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <a href="../index.html" class="nav-logo">Urban<span>Vibe</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="cart.html" class="nav-icon" aria-label="Cart">
+      <i class="fa-solid fa-bag-shopping"></i>
+      <span class="cart-count" style="display:none">0</span>
+    </a>
+    <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mobile-menu">
+  <a href="../index.html">Home</a>
+  <a href="shop.html">Shop</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="cart.html">Cart</a>
+</div>
+
+<main>
+<section class="page-hero" aria-labelledby="cart-title">
+  <div class="section-label">Checkout</div>
+  <h1 class="page-hero-title" id="cart-title">Your Cart</h1>
+</section>
+
+<div class="cart-layout" id="cart-layout">
+  <!-- Cart items injected by JS -->
+</div>
+
+<!-- CHECKOUT FORM (hidden until cart has items) -->
+<div id="checkout-section" style="display:none;max-width:1400px;margin:0 auto;padding:0 2rem 6rem;">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:3rem;">
+    <section aria-labelledby="shipping-title">
+      <h2 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--grey);margin-bottom:2rem;" id="shipping-title">Shipping Info</h2>
+      <form class="contact-form" id="checkoutForm" novalidate aria-label="Checkout form">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+          <div class="form-group">
+            <label class="form-label" for="cfname">First Name</label>
+            <input class="form-input" type="text" id="cfname" placeholder="First name" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="clname">Last Name</label>
+            <input class="form-input" type="text" id="clname" placeholder="Last name" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="cemail">Email</label>
+          <input class="form-input" type="email" id="cemail" placeholder="your@email.com" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="cphone">Phone</label>
+          <input class="form-input" type="tel" id="cphone" placeholder="+91 XXXXX XXXXX" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="caddress">Address</label>
+          <input class="form-input" type="text" id="caddress" placeholder="Street address" required />
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+          <div class="form-group">
+            <label class="form-label" for="ccity">City</label>
+            <input class="form-input" type="text" id="ccity" placeholder="City" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cpin">PIN Code</label>
+            <input class="form-input" type="text" id="cpin" placeholder="110001" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="cstate">State</label>
+          <select class="form-input form-select" id="cstate">
+            <option>Delhi</option>
+            <option>Maharashtra</option>
+            <option>Karnataka</option>
+            <option>Uttar Pradesh</option>
+            <option>Tamil Nadu</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div style="margin-top:1rem;">
+          <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--grey);margin-bottom:1rem;">Payment Method</div>
+          <div style="display:flex;flex-direction:column;gap:0.8rem;">
+            <label style="display:flex;gap:0.8rem;align-items:center;cursor:pointer;font-size:0.85rem;color:var(--grey);">
+              <input type="radio" name="payment" value="upi" checked style="accent-color:var(--white);" /> UPI / PhonePe / GPay
+            </label>
+            <label style="display:flex;gap:0.8rem;align-items:center;cursor:pointer;font-size:0.85rem;color:var(--grey);">
+              <input type="radio" name="payment" value="card" style="accent-color:var(--white);" /> Credit / Debit Card
+            </label>
+            <label style="display:flex;gap:0.8rem;align-items:center;cursor:pointer;font-size:0.85rem;color:var(--grey);">
+              <input type="radio" name="payment" value="cod" style="accent-color:var(--white);" /> Cash on Delivery
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:1.5rem;">
+          Place Order <i class="fa-solid fa-check"></i>
+        </button>
+      </form>
+    </section>
+
+    <div>
+      <div class="order-summary" aria-label="Order summary">
+        <div class="summary-title">Order Summary</div>
+        <div id="summary-items"></div>
+        <div class="coupon-input">
+          <input class="coupon-field" type="text" id="couponField" placeholder="Coupon code" aria-label="Discount coupon" />
+          <button class="coupon-apply" onclick="applyCoupon()">Apply</button>
+        </div>
+        <div class="summary-row"><span>Subtotal</span><span id="s-subtotal">₹0</span></div>
+        <div class="summary-row" id="s-discount-row" style="display:none;color:var(--grey);"><span>Discount</span><span id="s-discount">-₹0</span></div>
+        <div class="summary-row"><span>Shipping</span><span id="s-shipping">FREE</span></div>
+        <div class="summary-row total"><span>Total</span><span id="s-total">₹0</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 UrbanVibe. All rights reserved.</span>
+      <nav class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a></nav>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+let discount = 0;
+
+function renderCart() {
+  const layout = document.getElementById('cart-layout');
+  const checkoutSection = document.getElementById('checkout-section');
+
+  if (cart.length === 0) {
+    layout.innerHTML = `
+      <div class="empty-cart">
+        <div class="empty-cart-icon">🛍️</div>
+        <div class="empty-cart-title">Your cart is empty</div>
+        <p class="empty-cart-desc">Looks like you haven't added anything yet. Time to fix that.</p>
+        <a href="shop.html" class="btn btn-primary">Shop Now</a>
+      </div>`;
+    checkoutSection.style.display = 'none';
+    return;
+  }
+
+  checkoutSection.style.display = '';
+
+  let itemsHTML = '';
+  let subtotal = 0;
+
+  cart.forEach(item => {
+    subtotal += item.price * item.qty;
+    itemsHTML += `
+      <article class="cart-item" aria-label="${item.name} cart item">
+        <div class="cart-item-img" aria-hidden="true">${item.emoji}</div>
+        <div>
+          <div class="cart-item-name">${item.name}</div>
+          <div class="cart-item-meta">Size: M &nbsp;·&nbsp; Black</div>
+          <div class="qty-control" role="group" aria-label="Quantity control">
+            <button class="qty-btn" onclick="changeQty('${item.id}',-1)" aria-label="Decrease quantity">−</button>
+            <div class="qty-val" aria-live="polite">${item.qty}</div>
+            <button class="qty-btn" onclick="changeQty('${item.id}',1)" aria-label="Increase quantity">+</button>
+          </div>
+          <button class="cart-remove" onclick="removeItem('${item.id}')" aria-label="Remove ${item.name}">Remove</button>
+        </div>
+        <div class="cart-item-price">₹${(item.price * item.qty).toLocaleString('en-IN')}</div>
+      </article>`;
+  });
+
+  layout.innerHTML = `
+    <div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--border);">
+        <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--grey);">Your Items (${cart.length})</span>
+        <button onclick="clearCart()" style="font-size:0.75rem;color:var(--grey);font-family:'Montserrat',sans-serif;font-weight:600;background:none;border:none;cursor:pointer;letter-spacing:0.1em;text-transform:uppercase;">Clear All</button>
+      </div>
+      ${itemsHTML}
+    </div>
+    <div>
+      <div class="order-summary" aria-label="Quick order summary">
+        <div class="summary-title">Quick Summary</div>
+        <div class="summary-row"><span>Subtotal</span><span>₹${subtotal.toLocaleString('en-IN')}</span></div>
+        <div class="summary-row"><span>Shipping</span><span>${subtotal >= 999 ? 'FREE' : '₹99'}</span></div>
+        <div class="summary-row total"><span>Total</span><span>₹${(subtotal + (subtotal >= 999 ? 0 : 99)).toLocaleString('en-IN')}</span></div>
+        <a href="#checkout-section" onclick="smoothScroll()" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:1.5rem;">Proceed to Checkout</a>
+        <a href="shop.html" class="btn btn-ghost" style="width:100%;justify-content:center;margin-top:0.8rem;">Continue Shopping</a>
+      </div>
+    </div>`;
+
+  updateCheckoutSummary(subtotal);
+}
+
+function smoothScroll() {
+  document.getElementById('checkout-section').scrollIntoView({ behavior: 'smooth' });
+}
+
+function updateCheckoutSummary(subtotal) {
+  const shipping = subtotal >= 999 ? 0 : 99;
+  const total = subtotal - discount + shipping;
+  document.getElementById('s-subtotal').textContent = `₹${subtotal.toLocaleString('en-IN')}`;
+  document.getElementById('s-shipping').textContent = shipping === 0 ? 'FREE' : `₹99`;
+  document.getElementById('s-total').textContent = `₹${total.toLocaleString('en-IN')}`;
+
+  let summaryItems = '';
+  cart.forEach(item => {
+    summaryItems += `<div class="summary-row" style="font-size:0.8rem;color:var(--grey);">
+      <span>${item.name} × ${item.qty}</span>
+      <span>₹${(item.price*item.qty).toLocaleString('en-IN')}</span>
+    </div>`;
+  });
+  document.getElementById('summary-items').innerHTML = summaryItems;
+}
+
+function changeQty(id, delta) {
+  const item = cart.find(i => i.id === id);
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty <= 0) cart = cart.filter(i => i.id !== id);
+  localStorage.setItem('uv_cart', JSON.stringify(cart));
+  updateCartCount();
+  renderCart();
+}
+
+function removeItem(id) {
+  cart = cart.filter(i => i.id !== id);
+  localStorage.setItem('uv_cart', JSON.stringify(cart));
+  updateCartCount();
+  renderCart();
+  showToast('Item removed');
+}
+
+function clearCart() {
+  cart = [];
+  localStorage.setItem('uv_cart', JSON.stringify(cart));
+  updateCartCount();
+  renderCart();
+}
+
+function applyCoupon() {
+  const code = document.getElementById('couponField').value.trim().toUpperCase();
+  if (code === 'VIBE10') {
+    const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+    discount = Math.floor(subtotal * 0.1);
+    document.getElementById('s-discount-row').style.display = 'flex';
+    document.getElementById('s-discount').textContent = `-₹${discount.toLocaleString('en-IN')}`;
+    updateCheckoutSummary(subtotal);
+    showToast('10% discount applied!');
+  } else {
+    showToast('Invalid coupon code');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderCart();
+  const form = document.getElementById('checkoutForm');
+  if (form) {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      showToast('Order placed! Check your email 🔥');
+      cart = [];
+      localStorage.setItem('uv_cart', JSON.stringify(cart));
+      updateCartCount();
+      setTimeout(() => renderCart(), 1000);
+    });
+  }
+});
+</script>
+</body>
+</html>
