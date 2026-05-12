@@ -12,6 +12,26 @@
   <link rel="canonical" href="https://seo-1-racr.onrender.com/pages/shop.html" />
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .product-card {
+      position: relative;
+      overflow: hidden;
+      background: var(--light-grey);
+      aspect-ratio: 3/4;
+      cursor: pointer;
+    }
+    .product-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .product-card:hover img {
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 <body>
 
@@ -71,8 +91,13 @@
 
   <div class="products-grid" id="shop-grid">
 
+    <!-- 1. Void Black Tee -->
     <article class="product-card reveal" data-id="uv-001" data-price="1299" data-emoji="🖤" data-cat="tees" data-order="1">
-      <div class="product-placeholder">🖤</div>
+      <img
+        src="void.jpg"
+        alt="Void Black Tee – UrbanVibe oversized black t-shirt"
+        loading="lazy"
+      />
       <div class="product-badge">New</div>
       <div class="product-info">
         <div class="product-name">Void Black Tee</div>
@@ -81,8 +106,13 @@
       <div class="product-overlay"><button class="product-add-btn">Add to Cart</button></div>
     </article>
 
+    <!-- 2. Static Hoodie -->
     <article class="product-card reveal" data-id="uv-002" data-price="2499" data-emoji="⚡" data-cat="hoodies" data-order="2">
-      <div class="product-placeholder">⚡</div>
+      <img
+        src="Statichoodie.jpg"
+        alt="Static Hoodie – UrbanVibe premium streetwear hoodie"
+        loading="lazy"
+      />
       <div class="product-badge">Hot</div>
       <div class="product-info">
         <div class="product-name">Static Hoodie</div>
@@ -91,8 +121,13 @@
       <div class="product-overlay"><button class="product-add-btn">Add to Cart</button></div>
     </article>
 
+    <!-- 3. Flame Crop Tee -->
     <article class="product-card reveal" data-id="uv-003" data-price="899" data-emoji="🔥" data-cat="tees" data-order="3">
-      <div class="product-placeholder">🔥</div>
+      <img
+        src="flametees.jpg"
+        alt="Flame Crop Tee – UrbanVibe Gen Z crop top streetwear"
+        loading="lazy"
+      />
       <div class="product-info">
         <div class="product-name">Flame Crop Tee</div>
         <div class="product-price"><span class="sale">₹899</span></div>
@@ -100,8 +135,13 @@
       <div class="product-overlay"><button class="product-add-btn">Add to Cart</button></div>
     </article>
 
+    <!-- 4. Smoke Jacket -->
     <article class="product-card reveal" data-id="uv-004" data-price="3299" data-emoji="🌫️" data-cat="limited" data-order="4">
-      <div class="product-placeholder">🌫️</div>
+      <img
+        src="smokejacket.jpg"
+        alt="Smoke Jacket – UrbanVibe limited oversized jacket"
+        loading="lazy"
+      />
       <div class="product-badge">Limited</div>
       <div class="product-info">
         <div class="product-name">Smoke Jacket</div>
@@ -110,8 +150,13 @@
       <div class="product-overlay"><button class="product-add-btn">Add to Cart</button></div>
     </article>
 
+    <!-- 5. Lunar Pullover -->
     <article class="product-card reveal" data-id="uv-005" data-price="1799" data-emoji="🌑" data-cat="hoodies" data-order="5">
-      <div class="product-placeholder">🌑</div>
+      <img
+        src="lunarpullover.jpg"
+        alt="Lunar Pullover – UrbanVibe dark pullover hoodie"
+        loading="lazy"
+      />
       <div class="product-info">
         <div class="product-name">Lunar Pullover</div>
         <div class="product-price"><span class="sale">₹1,799</span></div>
@@ -119,8 +164,13 @@
       <div class="product-overlay"><button class="product-add-btn">Add to Cart</button></div>
     </article>
 
+    <!-- 6. Skull Graphic Tee -->
     <article class="product-card reveal" data-id="uv-006" data-price="599" data-emoji="💀" data-cat="tees" data-order="6">
-      <div class="product-placeholder">💀</div>
+      <img
+        src="skullgraphic.jpg"
+        alt="Skull Graphic Tee – UrbanVibe printed graphic streetwear tee"
+        loading="lazy"
+      />
       <div class="product-badge">Sale</div>
       <div class="product-info">
         <div class="product-name">Skull Graphic Tee</div>
@@ -129,8 +179,13 @@
       <div class="product-overlay"><button class="product-add-btn">Add to Cart</button></div>
     </article>
 
+    <!-- 7. Carbon Bomber -->
     <article class="product-card reveal" data-id="uv-007" data-price="4499" data-emoji="🧥" data-cat="jackets" data-order="7">
-      <div class="product-placeholder">🧥</div>
+      <img
+        src="carbombomber.jpg"
+        alt="Carbon Bomber – UrbanVibe streetwear bomber jacket"
+        loading="lazy"
+      />
       <div class="product-badge">New</div>
       <div class="product-info">
         <div class="product-name">Carbon Bomber</div>
@@ -139,8 +194,13 @@
       <div class="product-overlay"><button class="product-add-btn">Add to Cart</button></div>
     </article>
 
+    <!-- 8. Chain Detail Coat -->
     <article class="product-card reveal" data-id="uv-008" data-price="5999" data-emoji="⛓️" data-cat="limited" data-order="8">
-      <div class="product-placeholder">⛓️</div>
+      <img
+        src="chaindetailcoat.jpg"
+        alt="Chain Detail Coat – UrbanVibe Drop Zero limited edition coat"
+        loading="lazy"
+      />
       <div class="product-badge">Drop Zero</div>
       <div class="product-info">
         <div class="product-name">Chain Detail Coat</div>

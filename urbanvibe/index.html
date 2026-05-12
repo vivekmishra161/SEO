@@ -5,9 +5,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="UrbanVibe – Bold streetwear for Gen Z. Shop the latest drops in hoodies, tees, and limited collections. Wear your attitude." />
-  <meta name="keywords" content="streetwear, Gen Z fashion, urban clothing, hoodies, tees, limited drops, UrbanVibe" />
+  <meta name="keywords" content="streetwear, Gen Z fashion, urban clothing, hoodies, tees, limited drops, UrbanVibe, Printed tshirts, " />
   <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="UrbanVibe | Trendy Gen Z Fashion & Streetwear" />
+  <meta property="og:title" content="UrbanVibe | Trendy GenZ clothes and streetwear outfits" />
   <meta property="og:description" content="Discover oversized tees, hoodies, cargos, and aesthetic Gen Z streetwear styles at UrbanVibe." />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#000000" />
@@ -15,6 +15,66 @@
   <link rel="canonical" href="https://seo-1-racr.onrender.com/" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* ── Hero image ── */
+    .hero-right {
+      position: relative;
+      height: 75vh;
+      opacity: 0;
+      animation: fadeIn 1s forwards 0.5s;
+      overflow: hidden;
+    }
+    .hero-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      filter: grayscale(15%);
+    }
+
+    /* ── Product cards ── */
+    .product-card {
+      position: relative;
+      overflow: hidden;
+      background: var(--light-grey);
+      aspect-ratio: 3/4;
+      cursor: pointer;
+    }
+    .product-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .product-card:hover img {
+      transform: scale(1.05);
+    }
+
+    /* ── Collection cards ── */
+    .collection-item {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .collection-bg {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s ease;
+    }
+    .collection-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .collection-item:hover .collection-bg {
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 <body>
 
@@ -80,11 +140,15 @@
         </div>
       </div>
     </div>
+
+    <!-- HERO IMAGE -->
     <div class="hero-right">
-      <div class="hero-img-placeholder" aria-hidden="true">
-        <div style="font-size:5rem">🔥</div>
-        <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:0.7rem;letter-spacing:0.3em;color:#444;text-transform:uppercase">Hero Image</div>
-      </div>
+      <img
+        src="Heroimage.jpg"
+        alt="Young man in black streetwear outfit — UrbanVibe SS25 hero look"
+        loading="eager"
+        fetchpriority="high"
+      />
       <div class="hero-tag">SS25 — Drop 01</div>
     </div>
   </div>
@@ -121,7 +185,11 @@
   <div class="products-grid">
 
     <article class="product-card reveal" data-id="uv-001" data-price="1299" data-emoji="🖤">
-      <div class="product-placeholder" aria-label="Void Black Tee product image">🖤</div>
+      <img
+        src="void.jpg"
+        alt="Void Black Tee – UrbanVibe oversized black t-shirt"
+        loading="lazy"
+      />
       <div class="product-badge">New</div>
       <div class="product-info">
         <div class="product-name">Void Black Tee</div>
@@ -133,7 +201,11 @@
     </article>
 
     <article class="product-card reveal reveal-delay-1" data-id="uv-002" data-price="2499" data-emoji="⚡">
-      <div class="product-placeholder" aria-label="Static Hoodie product image">⚡</div>
+      <img
+        src="Statichoodie.jpg"
+        alt="Static Hoodie – UrbanVibe premium streetwear hoodie"
+        loading="lazy"
+      />
       <div class="product-badge">Hot</div>
       <div class="product-info">
         <div class="product-name">Static Hoodie</div>
@@ -148,7 +220,11 @@
     </article>
 
     <article class="product-card reveal reveal-delay-2" data-id="uv-003" data-price="899" data-emoji="🔥">
-      <div class="product-placeholder" aria-label="Flame Crop Tee product image">🔥</div>
+      <img
+        src="flametees.jpg"
+        alt="Flame Crop Tee – UrbanVibe Gen Z crop top"
+        loading="lazy"
+      />
       <div class="product-info">
         <div class="product-name">Flame Crop Tee</div>
         <div class="product-price"><span class="sale">₹899</span></div>
@@ -159,7 +235,11 @@
     </article>
 
     <article class="product-card reveal reveal-delay-3" data-id="uv-004" data-price="3299" data-emoji="🌫️">
-      <div class="product-placeholder" aria-label="Smoke Oversized Jacket product image">🌫️</div>
+      <img
+        src="smokejacket.jpg"
+        alt="Smoke Jacket – UrbanVibe limited oversized jacket"
+        loading="lazy"
+      />
       <div class="product-badge">Limited</div>
       <div class="product-info">
         <div class="product-name">Smoke Jacket</div>
@@ -181,41 +261,77 @@
       <h2 class="section-title" id="collections-heading">Collections</h2>
     </div>
     <div class="collections-grid">
+
       <article class="collection-item reveal" aria-label="Streetwear Essentials collection">
-        <div class="collection-bg" aria-hidden="true">🏙️</div>
+        <div class="collection-bg">
+          <img
+            src="essentials.jpg"
+            alt="Streetwear Essentials collection"
+            loading="lazy"
+          />
+        </div>
         <div class="collection-info">
           <div class="collection-name">Streetwear Essentials</div>
           <div class="collection-count">42 Pieces</div>
         </div>
       </article>
+
       <article class="collection-item reveal reveal-delay-1" aria-label="Dark Season collection">
-        <div class="collection-bg" aria-hidden="true">🌑</div>
+        <div class="collection-bg">
+          <img
+            src="darkseaeson.jpg"
+            alt="Dark Season collection"
+            loading="lazy"
+          />
+        </div>
         <div class="collection-info">
           <div class="collection-name">Dark Season</div>
           <div class="collection-count">18 Pieces</div>
         </div>
       </article>
+
       <article class="collection-item reveal reveal-delay-2" aria-label="Summer Noise collection">
-        <div class="collection-bg" aria-hidden="true">☀️</div>
+        <div class="collection-bg">
+          <img
+            src="summer basics.jpg"
+            alt="Summer Noise collection"
+            loading="lazy"
+          />
+        </div>
         <div class="collection-info">
           <div class="collection-name">Summer Noise</div>
           <div class="collection-count">26 Pieces</div>
         </div>
       </article>
+
       <article class="collection-item reveal reveal-delay-1" aria-label="Core Basics collection">
-        <div class="collection-bg" aria-hidden="true">⬛</div>
+        <div class="collection-bg">
+          <img
+            src="corebasics.jpg"
+            alt="Core Basics collection"
+            loading="lazy"
+          />
+        </div>
         <div class="collection-info">
           <div class="collection-name">Core Basics</div>
           <div class="collection-count">33 Pieces</div>
         </div>
       </article>
+
       <article class="collection-item reveal reveal-delay-2" aria-label="Drop Zero collection">
-        <div class="collection-bg" aria-hidden="true">💀</div>
+        <div class="collection-bg">
+          <img
+            src="dropzero.jpg"
+            alt="Drop Zero limited collection"
+            loading="lazy"
+          />
+        </div>
         <div class="collection-info">
           <div class="collection-name">Drop Zero</div>
           <div class="collection-count">9 Pieces</div>
         </div>
       </article>
+
     </div>
   </div>
 </section>
