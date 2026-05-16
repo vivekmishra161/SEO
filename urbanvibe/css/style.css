@@ -13,6 +13,16 @@
   --font-body: 'Poppins', sans-serif;
   --transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --transition-fast: 0.15s ease;
+
+  /* Responsive spacing scale */
+  --space-xs: clamp(0.5rem, 1vw, 0.75rem);
+  --space-sm: clamp(0.75rem, 2vw, 1.25rem);
+  --space-md: clamp(1rem, 3vw, 2rem);
+  --space-lg: clamp(2rem, 5vw, 4rem);
+  --space-xl: clamp(3rem, 7vw, 6rem);
+
+  /* Responsive container padding */
+  --container-pad: clamp(1rem, 4vw, 2rem);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -46,7 +56,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 1000;
-  padding: 0 2rem;
+  padding: 0 var(--container-pad);
   height: 70px;
   display: flex;
   align-items: center;
@@ -65,7 +75,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .nav-logo {
   font-family: var(--font-main);
   font-weight: 900;
-  font-size: 1.5rem;
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--white);
@@ -76,7 +86,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: clamp(1rem, 2.5vw, 2rem);
 }
 
 .nav-links a {
@@ -88,6 +98,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   color: var(--grey);
   transition: color var(--transition-fast);
   position: relative;
+  white-space: nowrap;
 }
 
 .nav-links a::after {
@@ -105,7 +116,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 1.2rem;
+  gap: clamp(0.6rem, 1.5vw, 1.2rem);
 }
 
 .nav-icon {
@@ -159,12 +170,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   top: 70px; left: 0; right: 0; bottom: 0;
   background: var(--black);
   z-index: 999;
-  padding: 3rem 2rem;
+  padding: 3rem var(--container-pad);
   display: flex;
   flex-direction: column;
   gap: 2rem;
   transform: translateX(-100%);
   transition: transform var(--transition);
+  overflow-y: auto;
 }
 
 .mobile-menu.open { transform: translateX(0); }
@@ -172,12 +184,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .mobile-menu a {
   font-family: var(--font-main);
   font-weight: 700;
-  font-size: 2rem;
+  font-size: clamp(1.4rem, 6vw, 2rem);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--white);
   border-bottom: 1px solid var(--border);
   padding-bottom: 1rem;
+  display: block;
 }
 
 /* ===== BUTTONS ===== */
@@ -185,7 +198,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.85rem 2rem;
+  padding: clamp(0.65rem, 2vw, 0.85rem) clamp(1.2rem, 3vw, 2rem);
   font-family: var(--font-main);
   font-weight: 700;
   font-size: 0.75rem;
@@ -253,7 +266,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .section-title {
   font-family: var(--font-main);
   font-weight: 900;
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(1.8rem, 5vw, 3.5rem);
   text-transform: uppercase;
   letter-spacing: -0.02em;
   line-height: 1;
@@ -263,6 +276,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ===== HERO SECTION ===== */
 .hero {
   min-height: 100vh;
+  min-height: 100svh; /* safe area on mobile */
   display: flex;
   align-items: center;
   position: relative;
@@ -293,15 +307,15 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   z-index: 2;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 var(--container-pad);
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: clamp(2rem, 5vw, 4rem);
   align-items: center;
 }
 
-.hero-left { padding: 2rem 0; }
+.hero-left { padding: clamp(1rem, 3vw, 2rem) 0; }
 
 .hero-eyebrow {
   font-family: var(--font-main);
@@ -318,11 +332,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .hero-title {
   font-family: var(--font-main);
   font-weight: 900;
-  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-size: clamp(2.8rem, 7vw, 7rem);
   text-transform: uppercase;
   line-height: 0.9;
   letter-spacing: -0.03em;
-  margin-bottom: 2rem;
+  margin-bottom: clamp(1.2rem, 3vw, 2rem);
   opacity: 0;
   animation: fadeUp 0.8s forwards 0.4s;
 }
@@ -334,10 +348,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .hero-desc {
-  font-size: 0.95rem;
+  font-size: clamp(0.85rem, 2vw, 0.95rem);
   color: var(--grey);
   max-width: 400px;
-  margin-bottom: 2.5rem;
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
   opacity: 0;
   animation: fadeUp 0.8s forwards 0.6s;
 }
@@ -352,18 +366,19 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .hero-stats {
   display: flex;
-  gap: 3rem;
-  margin-top: 4rem;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  margin-top: clamp(2rem, 5vw, 4rem);
   padding-top: 2rem;
   border-top: 1px solid var(--border);
   opacity: 0;
   animation: fadeUp 0.8s forwards 1s;
+  flex-wrap: wrap;
 }
 
 .stat-num {
   font-family: var(--font-main);
   font-weight: 900;
-  font-size: 1.8rem;
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
   color: var(--white);
 }
 
@@ -435,7 +450,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-size: 0.7rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  padding: 0 3rem;
+  padding: 0 clamp(1.5rem, 4vw, 3rem);
 }
 
 .ticker-dot {
@@ -445,7 +460,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 /* ===== FEATURED PRODUCTS ===== */
 .featured {
-  padding: 6rem 2rem;
+  padding: var(--space-xl) var(--container-pad);
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -454,14 +469,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  margin-bottom: 3rem;
+  margin-bottom: clamp(1.5rem, 4vw, 3rem);
   flex-wrap: wrap;
   gap: 1rem;
 }
 
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
   gap: 1.5px;
 }
 
@@ -513,14 +528,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .product-info {
   position: absolute;
   bottom: 0; left: 0; right: 0;
-  padding: 1.5rem;
+  padding: clamp(1rem, 3vw, 1.5rem);
   background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
 }
 
 .product-name {
   font-family: var(--font-main);
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: clamp(0.75rem, 2vw, 0.9rem);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   margin-bottom: 0.3rem;
@@ -571,7 +586,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 /* ===== COLLECTIONS ===== */
 .collections {
-  padding: 6rem 2rem;
+  padding: var(--space-xl) var(--container-pad);
   background: var(--light-grey);
 }
 
@@ -585,7 +600,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   grid-template-columns: 2fr 1fr 1fr;
   grid-template-rows: 300px 300px;
   gap: 1.5px;
-  margin-top: 3rem;
+  margin-top: clamp(1.5rem, 4vw, 3rem);
 }
 
 .collection-item {
@@ -620,7 +635,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .collection-name {
   font-family: var(--font-main);
   font-weight: 900;
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -632,7 +647,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 /* ===== DROPS BANNER ===== */
 .drops-banner {
-  padding: 6rem 2rem;
+  padding: var(--space-xl) var(--container-pad);
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -640,10 +655,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .drops-inner {
   background: var(--white);
   color: var(--black);
-  padding: 4rem;
+  padding: clamp(2rem, 5vw, 4rem);
   display: grid;
   grid-template-columns: 1fr auto;
-  gap: 3rem;
+  gap: clamp(1.5rem, 4vw, 3rem);
   align-items: center;
 }
 
@@ -660,7 +675,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .drops-title {
   font-family: var(--font-main);
   font-weight: 900;
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-size: clamp(1.6rem, 4vw, 3.5rem);
   text-transform: uppercase;
   line-height: 1;
   letter-spacing: -0.02em;
@@ -668,15 +683,16 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .drops-desc {
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
   color: var(--grey);
   max-width: 400px;
 }
 
 .countdown {
   display: flex;
-  gap: 1.5rem;
+  gap: clamp(0.8rem, 2vw, 1.5rem);
   margin-top: 2rem;
+  flex-wrap: wrap;
 }
 
 .countdown-block {
@@ -686,7 +702,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .countdown-num {
   font-family: var(--font-main);
   font-weight: 900;
-  font-size: 2.5rem;
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
   line-height: 1;
   display: block;
 }
@@ -701,15 +717,15 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .drops-badge {
   background: var(--black);
   color: var(--white);
-  padding: 2rem;
+  padding: clamp(1rem, 3vw, 2rem);
   text-align: center;
-  min-width: 180px;
+  min-width: clamp(120px, 15vw, 180px);
 }
 
 .drops-percent {
   font-family: var(--font-main);
   font-weight: 900;
-  font-size: 4rem;
+  font-size: clamp(2.5rem, 6vw, 4rem);
   line-height: 1;
   display: block;
 }
@@ -724,7 +740,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 /* ===== REVIEWS ===== */
 .reviews {
-  padding: 6rem 2rem;
+  padding: var(--space-xl) var(--container-pad);
   background: var(--light-grey);
 }
 
@@ -735,14 +751,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .reviews-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
   gap: 1.5px;
-  margin-top: 3rem;
+  margin-top: clamp(1.5rem, 4vw, 3rem);
 }
 
 .review-card {
   background: var(--black);
-  padding: 2rem;
+  padding: clamp(1.2rem, 3vw, 2rem);
   border: 1px solid var(--border);
   transition: border-color var(--transition);
 }
@@ -758,7 +774,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .review-text {
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
   color: var(--grey);
   line-height: 1.7;
   margin-bottom: 1.5rem;
@@ -782,6 +798,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-weight: 700;
   font-size: 0.85rem;
   border: 1px solid var(--border);
+  flex-shrink: 0;
 }
 
 .reviewer-name {
@@ -796,7 +813,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 /* ===== EMAIL SIGNUP ===== */
 .email-signup {
-  padding: 6rem 2rem;
+  padding: var(--space-xl) var(--container-pad);
   max-width: 1400px;
   margin: 0 auto;
   text-align: center;
@@ -810,7 +827,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .signup-offer {
   font-family: var(--font-main);
   font-weight: 900;
-  font-size: clamp(3rem, 8vw, 6rem);
+  font-size: clamp(2.5rem, 8vw, 6rem);
   text-transform: uppercase;
   line-height: 0.9;
   letter-spacing: -0.03em;
@@ -821,8 +838,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .signup-desc {
   color: var(--grey);
-  margin-bottom: 2.5rem;
-  font-size: 0.9rem;
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
 }
 
 .signup-form {
@@ -834,7 +851,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .signup-input {
   flex: 1;
-  padding: 1rem 1.5rem;
+  padding: clamp(0.75rem, 2vw, 1rem) clamp(0.9rem, 2.5vw, 1.5rem);
   background: var(--light-grey);
   border: 1px solid var(--border);
   border-right: none;
@@ -843,13 +860,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-size: 0.85rem;
   outline: none;
   transition: border-color var(--transition-fast);
+  min-width: 0; /* prevents flex overflow */
 }
 
 .signup-input::placeholder { color: var(--grey); }
 .signup-input:focus { border-color: var(--grey); }
 
 .signup-btn {
-  padding: 1rem 2rem;
+  padding: clamp(0.75rem, 2vw, 1rem) clamp(1rem, 3vw, 2rem);
   background: var(--white);
   color: var(--black);
   font-family: var(--font-main);
@@ -860,6 +878,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transition: all var(--transition-fast);
   border: 1px solid var(--white);
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .signup-btn:hover { background: transparent; color: var(--white); }
@@ -868,7 +887,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 footer {
   background: var(--light-grey);
   border-top: 1px solid var(--border);
-  padding: 4rem 2rem 2rem;
+  padding: clamp(2rem, 5vw, 4rem) var(--container-pad) 2rem;
 }
 
 .footer-inner {
@@ -879,14 +898,14 @@ footer {
 .footer-top {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 3rem;
-  margin-bottom: 4rem;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  margin-bottom: clamp(2rem, 5vw, 4rem);
 }
 
 .footer-brand-name {
   font-family: var(--font-main);
   font-weight: 900;
-  font-size: 1.8rem;
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: 1rem;
@@ -902,6 +921,7 @@ footer {
 .social-links {
   display: flex;
   gap: 0.8rem;
+  flex-wrap: wrap;
 }
 
 .social-link {
@@ -913,6 +933,7 @@ footer {
   font-size: 0.9rem;
   color: var(--grey);
   transition: all var(--transition-fast);
+  flex-shrink: 0;
 }
 
 .social-link:hover { border-color: var(--white); color: var(--white); }
@@ -958,7 +979,8 @@ footer {
 
 .footer-legal {
   display: flex;
-  gap: 2rem;
+  gap: clamp(1rem, 3vw, 2rem);
+  flex-wrap: wrap;
 }
 
 .footer-legal a {
@@ -971,7 +993,7 @@ footer {
 
 /* ===== PAGE HERO ===== */
 .page-hero {
-  padding: 10rem 2rem 4rem;
+  padding: clamp(6rem, 12vw, 10rem) var(--container-pad) clamp(2rem, 5vw, 4rem);
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -979,7 +1001,7 @@ footer {
 .page-hero-title {
   font-family: var(--font-main);
   font-weight: 900;
-  font-size: clamp(3rem, 8vw, 7rem);
+  font-size: clamp(2.5rem, 8vw, 7rem);
   text-transform: uppercase;
   letter-spacing: -0.03em;
   line-height: 0.9;
@@ -988,7 +1010,7 @@ footer {
 .page-hero-sub {
   color: var(--grey);
   margin-top: 1.5rem;
-  font-size: 0.95rem;
+  font-size: clamp(0.85rem, 2vw, 0.95rem);
   max-width: 500px;
 }
 
@@ -996,7 +1018,7 @@ footer {
 .shop-layout {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2rem var(--container-pad);
   display: grid;
   grid-template-columns: 240px 1fr;
   gap: 3rem;
@@ -1057,14 +1079,34 @@ footer {
   cursor: pointer;
 }
 
+/* Mobile filter toggle (hidden by default, shown on mobile) */
+.filter-toggle {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--white);
+  border: 1px solid var(--border);
+  padding: 0.6rem 1.2rem;
+  background: none;
+  cursor: pointer;
+  transition: border-color var(--transition-fast);
+}
+
+.filter-toggle:hover { border-color: var(--white); }
+
 /* ===== ABOUT PAGE ===== */
 .about-hero {
-  padding: 10rem 2rem 6rem;
+  padding: clamp(6rem, 12vw, 10rem) var(--container-pad) clamp(3rem, 7vw, 6rem);
   max-width: 1400px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 6rem;
+  gap: clamp(3rem, 7vw, 6rem);
   align-items: center;
 }
 
@@ -1073,19 +1115,19 @@ footer {
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
   background: var(--border);
-  margin: 4rem 0;
+  margin: clamp(2rem, 5vw, 4rem) 0;
 }
 
 .about-stat {
   background: var(--black);
-  padding: 3rem 2rem;
+  padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 3vw, 2rem);
   text-align: center;
 }
 
 .about-stat-num {
   font-family: var(--font-main);
   font-weight: 900;
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3rem);
   display: block;
 }
 
@@ -1097,7 +1139,7 @@ footer {
 }
 
 .about-mission {
-  padding: 6rem 2rem;
+  padding: var(--space-xl) var(--container-pad);
   background: var(--white);
   color: var(--black);
 }
@@ -1109,13 +1151,13 @@ footer {
 
 .about-values {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr));
   gap: 2rem;
   margin-top: 3rem;
 }
 
 .value-card {
-  padding: 2rem;
+  padding: clamp(1.2rem, 3vw, 2rem);
   border: 1px solid rgba(0,0,0,0.1);
   background: #f5f5f5;
 }
@@ -1141,10 +1183,10 @@ footer {
 .contact-layout {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 2rem 2rem 6rem;
+  padding: 2rem var(--container-pad) clamp(3rem, 7vw, 6rem);
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 6rem;
+  gap: clamp(3rem, 7vw, 6rem);
 }
 
 .contact-info-item {
@@ -1159,6 +1201,7 @@ footer {
   font-size: 1.5rem;
   color: var(--grey);
   margin-top: 0.2rem;
+  flex-shrink: 0;
 }
 
 .contact-info-label {
@@ -1204,6 +1247,7 @@ footer {
   outline: none;
   transition: border-color var(--transition-fast);
   resize: vertical;
+  width: 100%;
 }
 
 .form-input:focus,
@@ -1216,7 +1260,7 @@ footer {
 .cart-layout {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 2rem 2rem 6rem;
+  padding: 2rem var(--container-pad) clamp(3rem, 7vw, 6rem);
   display: grid;
   grid-template-columns: 1fr 380px;
   gap: 3rem;
@@ -1225,7 +1269,7 @@ footer {
 .cart-item {
   display: grid;
   grid-template-columns: 100px 1fr auto;
-  gap: 1.5rem;
+  gap: clamp(0.8rem, 2vw, 1.5rem);
   padding: 1.5rem 0;
   border-bottom: 1px solid var(--border);
   align-items: start;
@@ -1245,7 +1289,7 @@ footer {
 .cart-item-name {
   font-family: var(--font-main);
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: 0.3rem;
@@ -1319,9 +1363,10 @@ footer {
 .order-summary {
   background: var(--light-grey);
   border: 1px solid var(--border);
-  padding: 2rem;
+  padding: clamp(1.2rem, 3vw, 2rem);
   position: sticky;
   top: 90px;
+  align-self: start;
 }
 
 .summary-title {
@@ -1366,6 +1411,7 @@ footer {
   font-family: var(--font-body);
   font-size: 0.8rem;
   outline: none;
+  min-width: 0;
 }
 
 .coupon-apply {
@@ -1380,6 +1426,7 @@ footer {
   border: 1px solid var(--white);
   cursor: pointer;
   transition: all var(--transition-fast);
+  flex-shrink: 0;
 }
 
 .coupon-apply:hover { background: transparent; color: var(--white); }
@@ -1424,8 +1471,8 @@ footer {
 /* ===== TOAST ===== */
 .toast {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
+  bottom: clamp(1rem, 3vw, 2rem);
+  right: clamp(1rem, 3vw, 2rem);
   background: var(--white);
   color: var(--black);
   padding: 1rem 1.5rem;
@@ -1438,45 +1485,10 @@ footer {
   transform: translateY(100px);
   opacity: 0;
   transition: all var(--transition);
+  max-width: calc(100vw - 2rem);
 }
 
 .toast.show { transform: translateY(0); opacity: 1; }
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 1024px) {
-  .hero-content { grid-template-columns: 1fr; }
-  .hero-right { height: 50vh; }
-  .hero-tag { left: 0; }
-  .collections-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
-  .collections-grid .collection-item:first-child { grid-row: auto; }
-  .footer-top { grid-template-columns: 1fr 1fr; }
-  .about-hero { grid-template-columns: 1fr; gap: 3rem; }
-  .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
-  .cart-layout { grid-template-columns: 1fr; }
-  .shop-layout { grid-template-columns: 1fr; }
-  .filters { display: none; }
-  .drops-inner { grid-template-columns: 1fr; }
-}
-
-@media (max-width: 768px) {
-  .nav-links { display: none; }
-  .hamburger { display: flex; }
-  .hero-title { font-size: clamp(2.5rem, 12vw, 5rem); }
-  .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
-  .products-grid { grid-template-columns: repeat(2, 1fr); }
-  .collections-grid { grid-template-columns: 1fr; }
-  .footer-top { grid-template-columns: 1fr; }
-  .about-stats-row { grid-template-columns: 1fr; }
-  .signup-form { flex-direction: column; }
-  .signup-input { border-right: 1px solid var(--border); }
-  .cart-item { grid-template-columns: 80px 1fr; }
-  .drops-inner { padding: 2rem; }
-}
-
-@media (max-width: 480px) {
-  .products-grid { grid-template-columns: 1fr; }
-  .hero-actions { flex-direction: column; }
-}
 
 /* ===== PAGE TRANSITIONS ===== */
 .page-transition {
@@ -1491,7 +1503,7 @@ footer {
 /* ===== EMPTY CART ===== */
 .empty-cart {
   text-align: center;
-  padding: 6rem 2rem;
+  padding: clamp(3rem, 8vw, 6rem) 2rem;
   grid-column: 1 / -1;
 }
 
@@ -1500,9 +1512,259 @@ footer {
 .empty-cart-title {
   font-family: var(--font-main);
   font-weight: 900;
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
   text-transform: uppercase;
   margin-bottom: 0.5rem;
 }
 
 .empty-cart-desc { color: var(--grey); margin-bottom: 2rem; }
+
+/* ==============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================== */
+
+/* ===== LARGE DESKTOP (1280px+) ===== */
+@media (min-width: 1280px) {
+  .products-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ===== TABLET LANDSCAPE / SMALL DESKTOP (1024px and below) ===== */
+@media (max-width: 1024px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-left { padding: 2rem 0; }
+
+  .hero-desc { margin-left: auto; margin-right: auto; }
+
+  .hero-actions { justify-content: center; }
+
+  .hero-stats { justify-content: center; }
+
+  .hero-right {
+    height: 50vh;
+    order: -1; /* image above text on tablet */
+  }
+
+  .hero-tag { left: 0; }
+
+  .collections-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+
+  .collections-grid .collection-item:first-child {
+    grid-row: auto;
+    grid-column: 1 / -1;
+    min-height: 280px;
+  }
+
+  .footer-top { grid-template-columns: 1fr 1fr; }
+
+  .about-hero {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .cart-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .order-summary { position: static; }
+
+  .shop-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .filters { display: none; }
+  .filter-toggle { display: flex; }
+
+  .drops-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .drops-desc { margin: 0 auto; }
+  .countdown { justify-content: center; }
+  .drops-badge { margin: 0 auto; }
+}
+
+/* ===== TABLET PORTRAIT (768px and below) ===== */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+
+  /* Reduce navbar icon gap on mobile */
+  .nav-actions { gap: 0.5rem; }
+
+  .hero-content { grid-template-columns: 1fr; }
+
+  .hero-right {
+    height: 40vh;
+    order: -1;
+  }
+
+  .hero-tag { left: 0; bottom: 1rem; }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-actions .btn { width: 100%; justify-content: center; max-width: 320px; }
+
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .collections-grid { grid-template-columns: 1fr; }
+
+  .collections-grid .collection-item:first-child {
+    grid-column: 1;
+    min-height: 220px;
+  }
+
+  .collections-grid .collection-item {
+    min-height: 200px;
+  }
+
+  .footer-top { grid-template-columns: 1fr; }
+
+  .about-stats-row { grid-template-columns: 1fr 1fr; }
+
+  .signup-form {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .signup-input {
+    border-right: 1px solid var(--border);
+    border-bottom: none;
+  }
+
+  .signup-btn { width: 100%; justify-content: center; }
+
+  .cart-item {
+    grid-template-columns: 80px 1fr;
+  }
+
+  .cart-item-price {
+    grid-column: 2;
+    font-size: 0.9rem;
+  }
+
+  .drops-inner { padding: 2rem 1.5rem; }
+
+  /* Stack footer bottom */
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  /* Reviews: single column on tablet */
+  .reviews-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== MOBILE (480px and below) ===== */
+@media (max-width: 480px) {
+  :root {
+    --container-pad: 1rem;
+  }
+
+  .products-grid { grid-template-columns: 1fr; }
+
+  .hero-actions { flex-direction: column; align-items: stretch; }
+
+  .hero-right { height: 35vh; }
+
+  .about-stats-row { grid-template-columns: 1fr; }
+
+  /* Shrink nav icons on very small screens */
+  .nav-icon { width: 34px; height: 34px; font-size: 0.9rem; }
+
+  /* Cart item: simpler layout */
+  .cart-item {
+    grid-template-columns: 70px 1fr;
+    gap: 0.75rem;
+  }
+
+  .cart-item-img {
+    width: 70px;
+    height: 90px;
+    font-size: 1.5rem;
+  }
+
+  /* Collection items taller on mobile for visibility */
+  .collections-grid .collection-item { min-height: 220px; }
+
+  /* Drops banner: tighten */
+  .drops-badge { min-width: 100%; }
+
+  /* Footer legal stacks */
+  .footer-legal { flex-direction: column; gap: 0.5rem; }
+
+  /* Ticker slightly slower/bigger text on small screens */
+  .ticker-item { font-size: 0.65rem; padding: 0 1.5rem; }
+
+  /* Contact items: smaller gap */
+  .contact-info-item { gap: 1rem; }
+}
+
+/* ===== VERY SMALL SCREENS (360px and below) ===== */
+@media (max-width: 360px) {
+  .nav-logo { font-size: 1rem; }
+
+  .hero-title { font-size: 2.4rem; }
+
+  .section-title { font-size: 1.8rem; }
+
+  .btn { padding: 0.75rem 1.2rem; font-size: 0.7rem; }
+
+  .qty-btn { width: 28px; height: 28px; }
+  .qty-val { width: 34px; }
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .ticker-inner { animation: none; }
+
+  .hero-eyebrow,
+  .hero-title,
+  .hero-desc,
+  .hero-actions,
+  .hero-stats,
+  .hero-right,
+  .hero-tag {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ===== PRINT ===== */
+@media print {
+  .navbar,
+  .mobile-menu,
+  .ticker,
+  .hero-grid-overlay,
+  .toast,
+  .page-transition { display: none; }
+
+  body { background: white; color: black; }
+
+  .hero { min-height: auto; padding-top: 0; }
+}
