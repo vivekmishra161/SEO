@@ -11,6 +11,111 @@
   <link rel="canonical" href="https://seo-1-racr.onrender.com/pages/about.html" />
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    /* ── Gen Z two-column section ── */
+    .genz-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2rem, 6vw, 6rem);
+      align-items: center;
+    }
+
+    .genz-section {
+      padding: clamp(3rem, 7vw, 6rem) clamp(1rem, 4vw, 2rem);
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* ── Image placeholder blocks ── */
+    .img-placeholder {
+      background: var(--light-grey);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .img-placeholder-icon {
+      font-size: 4rem;
+    }
+
+    .img-placeholder-label {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      color: var(--grey);
+      text-transform: uppercase;
+    }
+
+    /* ── Hashtag tags ── */
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 2rem;
+    }
+
+    .tag {
+      background: var(--light-grey);
+      border: 1px solid var(--border);
+      padding: 0.4rem 1rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    /* ── About hero description ── */
+    .about-hero-desc {
+      color: var(--grey);
+      font-size: 0.95rem;
+      margin-top: 1.5rem;
+      max-width: 420px;
+      line-height: 1.8;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .genz-grid {
+        grid-template-columns: 1fr;
+      }
+
+      /* Image goes below text on mobile */
+      .genz-img-col {
+        order: 1;
+      }
+
+      .genz-text-col {
+        order: 0;
+      }
+
+      /* Shorter placeholder images on mobile */
+      .genz-img-placeholder {
+        height: 260px !important;
+      }
+
+      .about-hero-img-placeholder {
+        height: 300px !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .tag-list {
+        gap: 0.4rem;
+      }
+
+      .tag {
+        font-size: 0.6rem;
+        padding: 0.35rem 0.75rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -19,7 +124,7 @@
   <ul class="nav-links">
     <li><a href="../index.html">Home</a></li>
     <li><a href="shop.html">Shop</a></li>
-    <li><a href="about.html">About</a></li>
+    <li><a href="about.html" class="active">About</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
   <div class="nav-actions">
@@ -41,102 +146,108 @@
 
 <main>
 
-<!-- ABOUT HERO -->
-<section class="about-hero" aria-labelledby="about-title">
-  <div class="reveal">
-    <div class="section-label">Our Story</div>
-    <h1 class="section-title" id="about-title">Born From<br>The Streets</h1>
-    <p style="color:var(--grey);font-size:0.95rem;margin-top:1.5rem;max-width:420px;line-height:1.8;">
-      UrbanVibe started in 2022 in a garage in Delhi. Two friends, one vision — to create streetwear that actually speaks to Gen Z. No filters, no pretence, just raw authentic style.
-    </p>
-    <a href="shop.html" class="btn btn-primary" style="margin-top:2rem">Shop the Brand</a>
-  </div>
-  <div class="reveal">
-    <div style="height:500px;background:var(--light-grey);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1rem;">
-      <div style="font-size:5rem">🏙️</div>
-      <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.65rem;letter-spacing:0.3em;color:var(--grey);text-transform:uppercase">Brand Story Image</div>
-    </div>
-  </div>
-</section>
-
-<!-- STATS -->
-<div class="about-stats-row" style="max-width:1400px;margin:0 auto;" role="region" aria-label="Brand statistics">
-  <div class="about-stat reveal">
-    <span class="about-stat-num">2022</span>
-    <span class="about-stat-label">Founded</span>
-  </div>
-  <div class="about-stat reveal reveal-delay-1">
-    <span class="about-stat-num">50K+</span>
-    <span class="about-stat-label">Community Members</span>
-  </div>
-  <div class="about-stat reveal reveal-delay-2">
-    <span class="about-stat-num">200+</span>
-    <span class="about-stat-label">Styles Dropped</span>
-  </div>
-</div>
-
-<!-- MISSION -->
-<section class="about-mission" aria-labelledby="mission-title">
-  <div class="about-mission-inner">
+  <!-- ABOUT HERO -->
+  <!-- about-hero class already has grid-template-columns:1fr 1fr + responsive collapse in style.css -->
+  <section class="about-hero" aria-labelledby="about-title">
     <div class="reveal">
-      <div class="section-label" style="color:var(--grey);">Mission</div>
-      <h2 class="section-title" id="mission-title" style="color:var(--black);">Designed For<br>The Bold</h2>
-      <p style="color:#555;max-width:550px;margin-top:1.5rem;font-size:0.95rem;line-height:1.9;">
-        We design for people who have something to say — even if it's just through their clothes. 
-        Every piece is made with intention, every drop is a statement. UrbanVibe isn't just a brand; 
-        it's a movement for the generation that refuses to be defined by anyone else.
+      <div class="section-label">Our Story</div>
+      <h1 class="section-title" id="about-title">Born From<br>The Streets</h1>
+      <p class="about-hero-desc">
+        UrbanVibe started in 2022 in a garage in Delhi. Two friends, one vision — to create streetwear
+        that actually speaks to Gen Z. No filters, no pretence, just raw authentic style.
       </p>
+      <a href="shop.html" class="btn btn-primary" style="margin-top:2rem">Shop the Brand</a>
     </div>
-    <div class="about-values">
-      <div class="value-card reveal">
-        <div class="value-icon">⚡</div>
-        <div class="value-title">Bold by Design</div>
-        <p class="value-desc">Every silhouette is intentional. We don't do boring. Ever.</p>
-      </div>
-      <div class="value-card reveal reveal-delay-1">
-        <div class="value-icon">♻️</div>
-        <div class="value-title">Sustainably Made</div>
-        <p class="value-desc">Quality fabrics, ethical production, long-lasting pieces.</p>
-      </div>
-      <div class="value-card reveal reveal-delay-2">
-        <div class="value-icon">🌐</div>
-        <div class="value-title">Community First</div>
-        <p class="value-desc">Built with and for the community. Your voice shapes our drops.</p>
-      </div>
-      <div class="value-card reveal reveal-delay-3">
-        <div class="value-icon">🔥</div>
-        <div class="value-title">Limited Always</div>
-        <p class="value-desc">Scarcity by choice. We believe in exclusivity, not mass production.</p>
+    <div class="reveal">
+      <div class="img-placeholder about-hero-img-placeholder" style="height:500px;">
+        <div class="img-placeholder-icon">🏙️</div>
+        <div class="img-placeholder-label">Brand Story Image</div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- GEN Z SECTION -->
-<section style="padding:6rem 2rem;max-width:1400px;margin:0 auto;" aria-labelledby="genz-title">
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;">
-    <div class="reveal">
-      <div style="height:400px;background:var(--light-grey);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1rem;">
-        <div style="font-size:4rem">👥</div>
-        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.65rem;letter-spacing:0.3em;color:var(--grey);text-transform:uppercase">Community Photo</div>
-      </div>
+  <!-- STATS -->
+  <div class="about-stats-row" style="max-width:1400px;margin:0 auto;" role="region" aria-label="Brand statistics">
+    <div class="about-stat reveal">
+      <span class="about-stat-num">2022</span>
+      <span class="about-stat-label">Founded</span>
     </div>
-    <div class="reveal">
-      <div class="section-label">Who We're For</div>
-      <h2 class="section-title" id="genz-title">Gen Z.<br>No Cap.</h2>
-      <p style="color:var(--grey);margin-top:1.5rem;font-size:0.95rem;line-height:1.9;max-width:420px;">
-        Age 16–25. Instagram-native. Trend-aware but trend-resistant. You don't follow — you lead. 
-        UrbanVibe is made for people like you: the ones who know exactly who they are and wear it 
-        without apology.
-      </p>
-      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:2rem;">
-        <span style="background:var(--light-grey);border:1px solid var(--border);padding:0.4rem 1rem;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;">#WearYourAttitude</span>
-        <span style="background:var(--light-grey);border:1px solid var(--border);padding:0.4rem 1rem;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;">#UrbanVibe</span>
-        <span style="background:var(--light-grey);border:1px solid var(--border);padding:0.4rem 1rem;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;">#LimitedDrops</span>
-      </div>
+    <div class="about-stat reveal reveal-delay-1">
+      <span class="about-stat-num">50K+</span>
+      <span class="about-stat-label">Community Members</span>
+    </div>
+    <div class="about-stat reveal reveal-delay-2">
+      <span class="about-stat-num">200+</span>
+      <span class="about-stat-label">Styles Dropped</span>
     </div>
   </div>
-</section>
+
+  <!-- MISSION -->
+  <section class="about-mission" aria-labelledby="mission-title">
+    <div class="about-mission-inner">
+      <div class="reveal">
+        <div class="section-label" style="color:var(--grey);">Mission</div>
+        <h2 class="section-title" id="mission-title" style="color:var(--black);">Designed For<br>The Bold</h2>
+        <p style="color:#555;max-width:550px;margin-top:1.5rem;font-size:0.95rem;line-height:1.9;">
+          We design for people who have something to say — even if it's just through their clothes.
+          Every piece is made with intention, every drop is a statement. UrbanVibe isn't just a brand;
+          it's a movement for the generation that refuses to be defined by anyone else.
+        </p>
+      </div>
+      <div class="about-values">
+        <div class="value-card reveal">
+          <div class="value-icon">⚡</div>
+          <div class="value-title">Bold by Design</div>
+          <p class="value-desc">Every silhouette is intentional. We don't do boring. Ever.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-1">
+          <div class="value-icon">♻️</div>
+          <div class="value-title">Sustainably Made</div>
+          <p class="value-desc">Quality fabrics, ethical production, long-lasting pieces.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-2">
+          <div class="value-icon">🌐</div>
+          <div class="value-title">Community First</div>
+          <p class="value-desc">Built with and for the community. Your voice shapes our drops.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-3">
+          <div class="value-icon">🔥</div>
+          <div class="value-title">Limited Always</div>
+          <p class="value-desc">Scarcity by choice. We believe in exclusivity, not mass production.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GEN Z SECTION -->
+  <!-- ✅ Inline style="display:grid;grid-template-columns:1fr 1fr" replaced with .genz-grid class -->
+  <section class="genz-section" aria-labelledby="genz-title">
+    <div class="genz-grid">
+
+      <div class="reveal genz-img-col">
+        <div class="img-placeholder genz-img-placeholder" style="height:400px;">
+          <div class="img-placeholder-icon">👥</div>
+          <div class="img-placeholder-label">Community Photo</div>
+        </div>
+      </div>
+
+      <div class="reveal genz-text-col">
+        <div class="section-label">Who We're For</div>
+        <h2 class="section-title" id="genz-title">Gen Z.<br>No Cap.</h2>
+        <p class="about-hero-desc" style="max-width:100%;">
+          Age 16–25. Instagram-native. Trend-aware but trend-resistant. You don't follow — you lead.
+          UrbanVibe is made for people like you: the ones who know exactly who they are and wear it
+          without apology.
+        </p>
+        <div class="tag-list">
+          <span class="tag">#WearYourAttitude</span>
+          <span class="tag">#UrbanVibe</span>
+          <span class="tag">#LimitedDrops</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
 
 </main>
 
