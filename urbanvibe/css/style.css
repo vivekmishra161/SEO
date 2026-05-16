@@ -1115,7 +1115,17 @@ footer {
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
   background: var(--border);
+  width: 100%;
   margin: clamp(2rem, 5vw, 4rem) 0;
+}
+
+/* Full-bleed sections must never be width-constrained */
+.about-mission,
+.collections,
+.reviews,
+.ticker {
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .about-stat {
